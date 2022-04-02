@@ -1,12 +1,3 @@
-//c1811291
-//Emre Can Aşık
-//Bilgisayar Mühendisliği IV
-
-// ödeve ek olarak ekranda çizilen grafiğin "programın açıldığı yerde konumunun değişmemesi şartıyla
-// ekran görüntüsünü kaydetmesini sağladım. Kaydedilen görüntü eclipse workspace'de proje klasörüne 
-// Kaydediliyor. Ve exit butonu ekledim, bunları macOS için menübarda görüntülemesini, 
-//windows ise menü çubuğunda görüntülenmesini sağladım.
-
 package c1811291_mickey;
 
 //imports
