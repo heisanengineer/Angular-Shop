@@ -1,14 +1,3 @@
-//Emre Can Aşık
-//c1811291
-//Bilgisayar Mühendisliği
-
-
-
-//Hocam paint kısmı başka pencerede 
-//File exit vs menü işlemi başka pencerede açılıyor.
-//Açılan pencerelerden üsttekini kapattığınızda yada yana çektiğinizde diğer pencereyi görebilirsiniz.
-
-
 package homework3;
 
 import java.awt.*;
