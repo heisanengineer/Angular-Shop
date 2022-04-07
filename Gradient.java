@@ -1,7 +1,3 @@
-//C1811291
-//Computer Engineering IV
-//Emre Can Aşık
-
 package c1811291_labwork5;
 
 import javax.swing.*;
