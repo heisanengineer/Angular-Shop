@@ -1,0 +1,174 @@
+body {
+    margin: auto auto;
+    width: 80%;
+}
+
+.table1 {
+    width: 100%;
+    background-color: lightcyan;
+    text-align: center;
+}
+
+.biography {
+    text-decoration: solid;
+    text-align: center;
+    color: grey;
+    font-style: normal;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.titles {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    width: 100%;
+    align-items: center;
+}
+
+b {
+    color: grey;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    font-style: normal;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+    font-style: normal;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    stroke: black;
+}
+
+h4 {
+    color: darkcyan;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.h4w {
+    color: white;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+h5 {
+    color: chocolate;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+h6 {
+    color: bisque;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.h6dg {
+    color: darkgray;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.h6ws {
+    color: whitesmoke;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.profile {
+    width: 128px;
+    height: 128px;
+}
+
+.educations {
+    background-color: darkcyan;
+    width: 50%;
+}
+
+.experiences {
+    width: 50%;
+    background-color: lightcyan;
+}
+
+.edextab {
+    width: 100%;
+    border: 0px;
+    border-style: solid;
+    text-align: center;
+}
+
+a {
+    vertical-align: middle;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.spatab {
+    border: 0px;
+    border-style: solid;
+    text-align: center;
+    width: 100%;
+}
+
+.spatd {
+    background-color: whitesmoke;
+}
+
+.spali {
+    list-style-type: none;
+}
+
+.tdw {
+    color: white;
+}
+
+#licankaya {
+    list-style-image: url("../img/cankayalogo.png");
+}
+
+#lianadolu {
+    list-style-image: url('../img/anadolulogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#likarabuk {
+    list-style-image: url('../img/karabuklogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#lihighschool {
+    list-style-image: url('../img/liselogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#libilgeadam {
+    list-style-image: url('../img/bilgeadamlogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#liministry {
+    list-style-image: url('../img/cevrelogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#licerebrum {
+    list-style-image: url('../img/cerebrumlogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#liugursaat {
+    list-style-image: url('../img/ugurlogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#lirolex {
+    list-style-image: url('../img/rolexlogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+#libaskent {
+    list-style-image: url('../img/baskentlogo.png');
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
