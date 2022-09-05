@@ -1,3 +1,4 @@
-![_Users_emremac_vs-workspace_Intern-CV_cv-index html](https://user-images.githubusercontent.com/93338158/187918501-d0fa0b2f-95ee-496f-9a79-c88596f08aea.png)
+![SSEnSon](https://user-images.githubusercontent.com/93338158/188404245-8129f305-9c3d-4b77-b3c6-47a63d520b75.png)
 
-<img width="1047" alt="kodyapisi" src="https://user-images.githubusercontent.com/93338158/187875266-807e66e1-a826-4c69-a29b-5455f44cd57d.png">
+
+<img width="706" alt="Ekran Resmi 2022-09-05 11 27 43" src="https://user-images.githubusercontent.com/93338158/188404340-c16ba157-d2ea-466f-9456-7526a0809785.png">
