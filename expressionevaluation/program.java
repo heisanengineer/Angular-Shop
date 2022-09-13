@@ -1,4 +1,18 @@
 //input is evil!
+/* //Sildiğim kod
+		 * //Stringler innumunated primative değişkendir. Değiştirilemez //StringBuffer
+		 * değiştirilebilr string veri yapılarıdır. StringBuffer strbuf = new
+		 * StringBuffer(); StringBuffer strbuf2 = new StringBuffer();
+		 * //Eğer verilen ifade ( ile başlıyorsa ifade başına 1* koyarak düzeltir if
+		 * (text[0] == '(') { strbuf.append('1'); strbuf.append('*');
+		 * for (int i = 0; text.length > i; i++) { strbuf.append(text[i]);}
+		 * if (text[0] == '(' && strbuf.charAt(0) == '1' && strbuf.charAt(1) == '*') {
+		 * strbuf2.append('('); strbuf.deleteCharAt(0); strbuf.deleteCharAt(1);
+		 * for (int i = 1; text.length > i; i++) { strbuf2.append(strbuf.charAt(i));} }
+		 * char[] text2 = new char[strbuf2.length()];
+		 * for (int i = 0; text.length > i; i++) { text2[i] = strbuf2.charAt(i); }
+		 * control(text2); } else { control(text); }
+		 */
 package com.csb.expressionevaluation;
 
 import java.util.Scanner;
@@ -6,45 +20,34 @@ import java.util.Stack;
 
 public class program {
 
-	static String string = "0123456789";
-	static char[] str = string.toCharArray();
-	static int i,j;
-	public static int eval(String expres) {
+	static String stringStr = "0123456789";
+	static String stringPtr = "+-/*()";
+	static char[] str = stringStr.toCharArray();
+	static char[] ptr = stringPtr.toCharArray();
+	static int i, j;
+	static char[] text;
+	// stack yapısı dizinin ilk giren elemanının en sonda olduğu şekilde
+	// saklamasağlar
+	// sırayla üst üste konan kutular gibi düşünülebilir en son koyulan en üstte
+	// çıkar
+	public static Stack<Double> numbers = new Stack<Double>(); // Integer nesnesiyle int veri saklayan yığın
+																// oluşturulur.
+	public static Stack<Character> operators = new Stack<Character>(); // Character nesnesiyle char veri saklayan yığın
+																		// oluşturulur.
+	public static int countForError = 0;
+
+	public static Double eval(String expres) {
 		// main metod içinde girilen string değer express ile alınır.
 		// express .toCharArray işlemiyle text dizesinin içine tek tek atılır.
 		char[] text = expres.toCharArray();
 
-		// stack yapısı dizinin ilk giren elemanının en sonda olduğu şekilde saklama sağlar
-		// sırayla üst üste konan kutular gibi düşünülebilir en son koyulan en üstte çıkar
-
-		Stack<Integer> numbers = new Stack<Integer>(); // Integer nesnesiyle int veri saklayan yığın oluşturulur.
-
-		Stack<Character> operators = new Stack<Character>(); // Character nesnesiyle char veri saklayan yığın //
-																// oluşturulur.
-		int countForError = 0;
-
 		// program önce ( den önce ve ) den sonra gelen değeri kontrol eder
-		// eğer direk operator belirtilmeden sayı girişi varsa countForError değeri arttırılır.
+		// eğer direk operator belirtilmeden sayı girişi varsa countForError değeri
+		// arttırılır
+		control(text);
 
-		for (i = 0; i < text.length - 1; i++) {
-			if (text[i] == '(') {
-				for (j = 1; j < str.length - 1; j++) {
-					if (text[i - 1] == str[j] || text[i] == str[j]) {
-						countForError++;
-					}
-				}
-			}
-			if (text[i] == ')') {
-				for (j = 1; j < str.length - 1; j++) {
-					if (text[i] == str[j] || text[i + 1] == str[j]) {
-						countForError++;
-
-					}
-				}
-			}
-		}
-
-		// countForError 0 dan fazlaysa yani hata varsa geri dönüş hata mesajı olarak yapılır.
+		// countForError 0 dan fazlaysa yani hata varsa geri dönüş hata mesajı olarak
+		// yapılır.
 		if (countForError == 0) {
 
 			// döngü text.length'den dönen uzunluğa göre dönmeye başlar.
@@ -71,7 +74,7 @@ public class program {
 					while (i < text.length && text[i] >= '0' && text[i] <= '9') {
 						stringbuffer.append(text[i++]);
 					}
-					numbers.push(Integer.parseInt(stringbuffer.toString()));
+					numbers.push(Double.parseDouble(stringbuffer.toString()));
 					i--;
 
 					// Integer.parseInt değeri int'e çevirir.
@@ -83,6 +86,7 @@ public class program {
 				// text dizesi içinde ki ( bulur ve operators stack'ine kaydeder
 				else if (text[i] == '(') {
 					operators.push(text[i]);
+					// numbers.push(Evaluation('*', numbers.pop(),numbers.pop()));
 				}
 
 				// text dizesi içinde ) parantez kapama gelene kadar, gelen sayıları ve işlemi
@@ -90,11 +94,11 @@ public class program {
 				// daha sonra hesaplanan bu değerleri ve operatörü siler.
 				else if (text[i] == ')') {
 					while (operators.peek() != '(') {
-						
+
 						numbers.push(Evaluation(operators.pop(), numbers.pop(), numbers.pop()));
-						
+
 					}
-					
+
 					operators.pop();
 
 					// .pop stack'in en sonunda ki elemanı siler.
@@ -106,11 +110,11 @@ public class program {
 				else if (text[i] == '+' || text[i] == '-' || text[i] == '*' || text[i] == '/') {
 
 					while (!operators.empty() && prioritySwitch(text[i], operators.peek())) {
-						
+
 						numbers.push(Evaluation(operators.pop(), numbers.pop(), numbers.pop()));
-						
+
 					}
-					
+
 					operators.push(text[i]);
 
 					// .pop stack'in en sonunda ki elemanı siler.
@@ -119,8 +123,8 @@ public class program {
 
 				}
 			}
-			
-			//tekrar bir kontrol yapılır ve operator yığını boş değilse işlem tamamlanır.
+
+			// tekrar bir kontrol yapılır ve operator yığını boş değilse işlem tamamlanır.
 			while (!operators.empty()) {
 				numbers.push(Evaluation(operators.pop(), numbers.pop(), numbers.pop()));
 			}
@@ -128,10 +132,35 @@ public class program {
 
 		} else {
 
-			System.out.println("The entered text format is incorrect, must be the operator must be specified after the parentheses.Not come direct numbers.");
-			return 0;
+			System.out.println(
+					"The entered text format is incorrect, must be the operator must be specified after the parentheses.Not come direct numbers."
+							+ "Error Count:" + countForError);
+			return 0.0;
 		}
 
+	}
+
+	// ( den önce direk sayı gelmesi
+	// ) den sonra direk sayı gelmesi burada kontrol ediliyor.
+	public static void control(char arr[]) {
+		for (i = 1; i < arr.length - 1; i++) {
+			if (arr[i] == '(') {
+				for (j = 1; j < str.length - 1; j++) {
+					if (arr[i - 1] == str[j]) {
+						countForError++;
+					}
+				}
+			}
+		}
+		for (i = 0; i < arr.length - 1; i++) {
+			if (arr[i] == ')') {
+				for (j = 0; j < str.length; j++) {
+					if (arr[i + 1] == str[j]) {
+						countForError++;
+					}
+				}
+			}
+		}
 	}
 
 	// işlem önceliğini ayırmamızı sağlayan metot
@@ -146,8 +175,7 @@ public class program {
 	}
 
 	// değerlerin işlemlerinin yqpılmasını sağlayan metot
-
-	public static int Evaluation(char operator, int firstNumber, int secondNumber) {
+	public static Double Evaluation(char operator, Double firstNumber, Double secondNumber) {
 		switch (operator) {
 		case '+':
 			return secondNumber + firstNumber;
@@ -160,20 +188,15 @@ public class program {
 				throw new UnsupportedOperationException("Numbers are not divide by 0.");
 			return secondNumber / firstNumber;
 		}
-		return 0;
+		return 0.0;
 	}
 
+	// main method
 	public static void main(String[] args) {
-		System.out.println("************************************");
-		System.out.println("    String to Int Parse Program     ");
-		System.out.println("************************************");
-		System.out.println("Evaluation Of The Entered Expression");
-		System.out.println("************************************");
 
 		System.out.print("\nPlease enter an expression to parse the operation---->:");
 
 		// Scanner kullanıcıdan input almayı sağlayan nesne
-
 		Scanner input = new Scanner(System.in);
 
 		// Scannerden dönen veri ne olursa olsun string ifadeye çevrilip valueString'e
@@ -183,10 +206,17 @@ public class program {
 		// eval fonksiyonuyla gönderilen string ifade işleme tabi olur.
 		// eval bir int dönüş değeri sağlar. Bu dönen değer nihayet sonuç olur.
 
-		int result = eval(valueString);
-		
-		if (result!=0)
-		System.out.println("Result:" + result);
+		Double result = eval(valueString);
 
+		if (result != 0)
+			System.out.println("Result:" + result);
+	}
+
+	public static void welcome() {
+		System.out.println("************************************");
+		System.out.println("    String to Int Parse Program     ");
+		System.out.println("************************************");
+		System.out.println("Evaluation Of The Entered Expression");
+		System.out.println("************************************");
 	}
 }
