@@ -1,7 +1,13 @@
 body {
     margin: auto auto auto auto;
-    width: 90%;
+    width: 80%;
     background-color: white;
+}
+
+.profile {
+    width: 128px;
+    height: 128px;
+    border-radius: 10px;
 }
 
 .edex {
@@ -16,6 +22,7 @@ body {
 
 .educations {
     width: 100%;
+    height: 90%;
     background-color: darkcyan;
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     padding-top: 10px;
@@ -25,7 +32,38 @@ body {
 
 .experiences {
     width: 100%;
+    height: 90%;
     background-color: lightcyan;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.skillsandproject{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.skillsTopic {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: lightcyan;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.projectsandawards {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: darkcyan;
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -41,7 +79,6 @@ body {
     background-color: lightcyan;
     font-family: 'Helvetica Neue', sans-serif;
     align-items: center;
-    border: 0;
     border-radius: 10px;
 
 }
@@ -53,24 +90,9 @@ body {
     width: 100%;
     border: 0px;
     text-align: right;
-    background-color: white;
+    background-color: lightcyan;
     font-family: 'Helvetica Neue', sans-serif;
     align-items: center;
-    border-radius: 10px;
-}
-
-@media screen and (max-width:768px) {
-    .edex {
-        grid-template-columns: auto;
-    }
-
-    .bio {
-        grid-template-columns: auto;
-    }
-
-    .links {
-        grid-template-columns: auto;
-    }
 }
 
 nav {
@@ -80,13 +102,10 @@ nav {
     border-radius: 10px;
 }
 
-.titles {
-    background-color: whitesmoke;
-    border-color: darkcyan;
-    text-align: center;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+header{
+    margin-bottom: 10px;
+    border-left: 5px solid darkcyan;
+    border-right: 5px solid darkcyan;
     border-radius: 10px;
 }
 
@@ -152,10 +171,9 @@ h5 {
     font-family: 'Helvetica Neue', sans-serif;
 }
 
-.profile {
-    width: 128px;
-    height: 128px;
-    border-radius: 10px;
+h6 {
+    color: whitesmoke;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 a {
@@ -165,23 +183,12 @@ a {
     padding-right: 10px;
 }
 
-.spatab {
-    text-align: center;
-    width: 100%;
-    border-radius: 10px;
-}
-
-.spatd {
-    background-color: whitesmoke;
-    border-style: solid;
-    border-top: 10px;
-    border-bottom: 10px;
-    border-color: darkcyan;
-    border-radius: 10px;
-}
-
-.spali {
-    list-style-type: none;
+hr {
+    margin: 10px, auto 15px;
+    width: 20%;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
 }
 
 
@@ -225,24 +232,34 @@ a {
     list-style-image: url('../img/baskentlogo.png');
 }
 
+#liardgrup {
+    list-style-image: url('../img/ardgrup.png');
+}
+
 #aclass {
     margin-bottom: -3px;
     text-align: right;
 }
 
-#navid {
-    border-top: 5px solid whitesmoke;
-}
-
 #navlogo {
     width: 70px;
     height: 70px;
+    display: inline-block;
 }
 
-hr {
-    margin: 10px, auto 15px;
-    width: 20%;
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
+@media screen and (max-width:768px) {
+    .edex {
+        grid-template-columns: auto;
+    }
+
+    .bio {
+        grid-template-columns: auto;
+    }
+
+    .links {
+        grid-template-columns: auto;
+    }
+    .skillsandproject{
+        grid-template-columns: auto;
+    }
 }
