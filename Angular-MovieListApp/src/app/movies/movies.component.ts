@@ -10,7 +10,7 @@ import { MovieService } from "../movie.service";
 export class MoviesComponent {
 
     title = 'Movie List'
-    movies?: Movie[];
+    movies!: Movie[];
     selectedMovie?: Movie;
     errorMessage: any;
 
@@ -36,5 +36,19 @@ export class MoviesComponent {
 
     getTitle(): string {
         return this.title;
+    }
+
+    add(name: string, imageUrl: string, description: string): void {
+        this.movieService.add({
+            name,
+            imageUrl,
+            description
+        } as Movie)
+            .subscribe(movie => this.movies?.push(movie))
+    }
+
+    delete(movie: Movie): void {
+        this.movies = this.movies.filter(m => m != movie);
+        this.movieService.delete(movie).subscribe();
     }
 }
