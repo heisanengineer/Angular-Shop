@@ -1,0 +1,5 @@
+<h3>{{title}}</h3>
+<div class="list-group">
+  <button [class.active]="cate==selectedCategory" *ngFor="let cate of categories" (click)="selectCategory(cate)"
+    class="list-group-item">{{cate.name}}</button>
+</div>

@@ -1,0 +1,18 @@
+<h3 *ngIf="products;else noProduct">{{title}}</h3>
+<ng-template #noProduct>
+    <div class="alert alert-danger" role="alert">
+        No product in this category!
+    </div>
+</ng-template>
+
+<div class="row">
+    <div *ngFor="let product of products | productFilter:filterText" class="card border border-3 rounded" style="width: 18rem;">
+        <img src="{{product.imageUrl}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <h6 class="text-primary">{{product.categoryName}}</h6>
+            <p class="card-text">{{product.description}}</p>
+            <span class="text-bg-primary p-2 rounded">{{ product.price| currency:'TRY' }}</span>
+            <a (click)="addToCart(product.name, product.categoryName)" href="#" class="btn rounded">Add to Cart</a>
+        </div>
+    </div>
