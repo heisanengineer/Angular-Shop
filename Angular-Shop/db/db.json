@@ -3,32 +3,32 @@
     { 
       "id": 1, "name": "Macbook Pro 16\" 512GB", "price": 2500,
       "categoryId": 1, "categoryName": "PC",
-      "description": "Karşınızda bugüne kadarki en güçlü MacBook Pro var. Profesyoneller için tasarlanan ilk Apple çipler: ışık hızında M1 Pro veya M1 Max. Çığır açan bir performans. Muhteşem bir pil ömrü.", 
+      "description": "The most powerful MacBook Pro ever is here. With the blazing-fast M1 Pro or M1 Max chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life.", 
       "imageUrl": "assets/img/macbook.webp"
     },
     {
       "id": 2, "name": "iPhone 14 Pro Max", "price": 1500,
       "categoryId": 2, "categoryName": "Phone",
-      "description": "Yeni ve sihirli bir iPhone deneyimi. Akılalmaz ayrıntılar için inovatif 48 MP kamera. Hayat kurtarmak için tasarlanan bir güvenlik özelliği. Ve hepsine güç veren olağanüstü bir akıllı telefon çipi.", 
+      "description": "A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip.", 
       "imageUrl": "assets/img/iphone.webp"
     },
     {
-      "id": 3, "name": "Ipad Pro 11\" 128GB", "price": 2000,
+      "id": 3, "name": "iPad Pro 11\" 128GB", "price": 2000,
       "categoryId": 3, "categoryName": "Tablet",
-      "description": "Akılalmaz performans. İnanılmaz gelişmiş ekranlar. Süper hızlı kablosuz bağlantı. İleri seviye Apple Pencil becerileri. Ve iPadOS 16 ile sunulan güçlü yeni özellikler. En üst düzey iPad deneyimine hazır mısınız?", 
+      "description": "Astonishing performance. Incredibly advanced displays. Superfast wireless connectivity. Next-level Apple Pencil capabilities. Powerful new features in iPadOS 16. The ultimate iPad experience.", 
       "imageUrl": "assets/img/ipad.webp"
     },
     {
       "id": 4, "name": "Mac Pro", "price": 4000,
       "categoryId": 1, "categoryName": "PC",
-      "description": "Mac Pro, Her şeyi değiştirecek bir güç. Mümkün olanın sınırlarını zorlamak isteyen profesyoneller için olağanüstü performans, yapılandırma ve genişletme seçenekleriyle tasarlanmış yepyeni bir sistem.", 
+      "description": "Say hello to a Mac that is extreme in every way. With the greatest performance, expansion, and configurability yet, it is a system created to let a wide range of professionals push the limits of what is possible.", 
       "imageUrl": "assets/img/mac-pro.jpeg"
     }
   ],
 
   "categories":[
-    {"ïd":1,"name":"PC"},
-    {"ïd":2,"name":"Telephone"},
-    {"ïd":3,"name":"Tablet"}
+    {"id":1,"name":"PC"},
+    {"id":2,"name":"Telephone"},
+    {"id":3,"name":"Tablet"}
   ]
 }
