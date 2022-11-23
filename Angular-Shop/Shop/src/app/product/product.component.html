@@ -6,13 +6,14 @@
 </ng-template>
 
 <div class="row">
-    <div *ngFor="let product of products | productFilter:filterText" class="card border border-3 rounded" style="width: 18rem;">
+    <div *ngFor="let product of products | productFilter:filterText, uppercase "
+        class="card rounded" [ngStyle]="getPriceBorderStyle(product.price)"  style="width: 18rem;">
         <img src="{{product.imageUrl}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{product.name}}</h5>
             <h6 class="text-primary">{{product.categoryName}}</h6>
             <p class="card-text">{{product.description}}</p>
-            <span class="text-bg-primary p-2 rounded">{{ product.price| currency:'TRY' }}</span>
-            <a (click)="addToCart(product.name, product.categoryName)" href="#" class="btn rounded">Add to Cart</a>
+            <span class="p-2 rounded" [ngStyle]="getPriceStyle(product.price)">{{ product.price| currency:'TRY' }}</span>
+            <button (click)="addToCart(product.name, product.categoryName)" [ngStyle]="getPriceButtonStyle(product.price)" class="rounded">Add to Cart</button>
         </div>
     </div>

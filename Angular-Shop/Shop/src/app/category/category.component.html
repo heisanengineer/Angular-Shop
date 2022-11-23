@@ -1,5 +1,9 @@
 <h3>{{title}}</h3>
 <div class="list-group">
-  <button [class.active]="cate==selectedCategory" *ngFor="let cate of categories" (click)="selectCategory(cate)"
-    class="list-group-item">{{cate.name}}</button>
+  <!-- <a [class.active]="category==selectedCategory" *ngFor="let category of categories" (click)="selectCategory(category)"
+    routerLink="products/category/{{category.id}}" class="list-group-item"
+    routerLinkActive="router-link-active">{{category.name}}</a> -->
+    <a [class.active]="category==selectedCategory" *ngFor="let category of categories" (click)="selectCategory(category)"
+    routerLink="products"[queryParams]="{categoryId:category.id}" class="list-group-item"
+    routerLinkActive="router-link-active">{{category.name}}</a>
 </div>

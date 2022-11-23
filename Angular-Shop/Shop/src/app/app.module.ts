@@ -8,6 +8,7 @@ import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { ProductFilterPipe } from './product/product-filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { AlertifyService } from './services/alertify.service';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,15 @@ import { FormsModule } from '@angular/forms';
     CategoryComponent,
     ProductComponent,
     ProductFilterPipe,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

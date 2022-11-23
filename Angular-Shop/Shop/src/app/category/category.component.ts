@@ -1,28 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { categories } from './categories';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css'],
+  providers: [CategoryService]
 })
 export class CategoryComponent implements OnInit {
+  constructor(
+    private categoryService: CategoryService) {
+  }
 
-  constructor() { }
-
-  title = "Kategori Listesi";
-  categories: categories[] = [
-    { id: 1, name: "Telefon" },
-    { id: 2, name: "Tablet" },
-    { id: 3, name: "Bilgisayar" }
-  ]
+  title = "Categories:";
+  categories!: categories[];
 
   selectedCategory?: categories | null;
 
   ngOnInit(): void {
+    this.categoryService.getCategories().subscribe(data => {
+      this.categories = data
+    });
   }
 
   selectCategory(category: categories) {
     this.selectedCategory = category;
+
   }
+
 }

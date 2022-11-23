@@ -1,16 +1,28 @@
+import { getCurrencySymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
+
 })
 export class NavComponent {
-  
-  filterText = "";
+  navbarSearchText:string=""
+  constructor(
+    private productService: ProductService
+    ) { }
 
-  constructor() { }
-  
+
+  getSearchText(event: any) {
+    let searchText = String(event.value)
+    this.productService.navbarSearchText.next(searchText)
+  }
+
+  getColor(){
+    return 'green';
+  }
 }
 
 
