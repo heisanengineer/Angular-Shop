@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { faHouseDamage, faPlus, faSearch, faUser, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { SearchBarService } from '../services/search-bar.service';
+import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +13,8 @@ import { SearchBarService } from '../services/search-bar.service';
 export class NavComponent {
   navbarSearchText: string = ""
   constructor(
-    private searchBar: SearchBarService
+    private searchBar: SearchBarService,
+    private accountService: AccountService
   ) { }
 
   faHouseDamage = faHouseDamage;
@@ -28,6 +30,14 @@ export class NavComponent {
 
   getColor() {
     return 'green';
+  }
+
+  isLoggedin(){
+    return this.accountService.isLoggedIn();
+  }
+
+  logOut(){
+    this.accountService.logOut();
   }
 }
 

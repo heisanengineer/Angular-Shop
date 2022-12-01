@@ -17,15 +17,17 @@
                 </p>
             </h6>
 
-            <p class="mb-4 card-text">{{product.description}}</p>
+            <p class="mb-5 card-text">{{product.description}}</p>
 
-            <span class="p-2 rounded" style="padding-top: 20px;" [ngStyle]="getPriceStyle(product.price)">
-                <fa-icon [icon]="faTag"></fa-icon> {{ product.price| currency:'TRY' }}
-            </span>
+            <div>
+                <span class="p-2 rounded" [ngStyle]="getPriceStyle(product.price)">
+                    <fa-icon [icon]="faTag"></fa-icon> {{ product.price| currency:'TRY' }}
+                </span>
 
-            <button (click)="addToCart(product.name)"
-                [ngStyle]="getPriceButtonStyle(product.price)" class="rounded mt-2">
-                <fa-icon [icon]="faCartPlus"></fa-icon> Add to Cart
-            </button>   
+                <button (click)="addToCart(product.name)" [ngStyle]="getPriceButtonStyle(product.price)"
+                    class="rounded mt-2">
+                    <fa-icon [icon]="faCartPlus"></fa-icon> Add to Cart
+                </button>
+            </div>
         </div>
     </div>

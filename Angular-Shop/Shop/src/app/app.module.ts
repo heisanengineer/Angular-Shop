@@ -12,6 +12,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductAddStandardComponent } from './product/product-add-standard/product-add-standard.component';
 import { LoginComponent } from './login/login.component';
+import { AlertifyService } from './services/alertify.service';
+import { AccountService } from './services/account.service';
+import { LoginGuard } from './login/login.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [AlertifyService,AccountService,LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

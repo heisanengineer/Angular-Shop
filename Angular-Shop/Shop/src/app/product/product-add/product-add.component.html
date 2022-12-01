@@ -16,7 +16,7 @@
         <label for="floatingInput">Product Name:</label>
     </div>
 
-    <input formControlName="categoryId" class="form-control" list="datalistOptions" id="categoryId" name="categoryId" required placeholder="Type to search...">
+    <input formControlName="categoryId" class="form-control mb-3" list="datalistOptions" id="categoryId" name="categoryId" required placeholder="Type to search category...">
     <datalist id="datalistOptions">
         <option *ngFor="let category of categories " [value]="category.name">{{category.name}}</option>
     </datalist>

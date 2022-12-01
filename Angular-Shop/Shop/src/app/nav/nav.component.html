@@ -27,8 +27,11 @@
         </li>
 
         <li class="text-end">
-          <a class="nav-link active" routerLink="login">
+          <a class="nav-link active" *ngIf="isLoggedin()==false" routerLink="login">
             <fa-icon [icon]="faUser"></fa-icon> Login
+          </a>
+          <a class="nav-link active" *ngIf="isLoggedin()==true" (click)="logOut()" routerLink="/">
+            <fa-icon [icon]="faUser"></fa-icon> LogOut
           </a>
         </li>
       </ul>
