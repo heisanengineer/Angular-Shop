@@ -7,8 +7,11 @@ import { NavComponent } from './nav/nav.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { ProductFilterPipe } from './product/product-filter.pipe';
-import { FormsModule } from '@angular/forms';
-import { AlertifyService } from './services/alertify.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductAddComponent } from './product/product-add/product-add.component';
+import { ProductAddStandardComponent } from './product/product-add-standard/product-add-standard.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { AlertifyService } from './services/alertify.service';
     CategoryComponent,
     ProductComponent,
     ProductFilterPipe,
-    
+    ProductAddComponent,
+    ProductAddStandardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,8 @@ import { AlertifyService } from './services/alertify.service';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    FontAwesomeModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

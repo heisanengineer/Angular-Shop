@@ -1,19 +1,31 @@
-<h3 *ngIf="products;else noProduct">{{title}}</h3>
 <ng-template #noProduct>
     <div class="alert alert-danger" role="alert">
         No product in this category!
     </div>
 </ng-template>
 
-<div class="row">
-    <div *ngFor="let product of products | productFilter:filterText, uppercase "
-        class="card rounded" [ngStyle]="getPriceBorderStyle(product.price)"  style="width: 18rem;">
+<div class="row mt-3 mb-5">
+    <div *ngFor="let product of products | productFilter:filterText, uppercase" class="card rounded mt-2 ms-2"
+        [ngStyle]="getPriceBorderStyle(product.price)" style="width: 18rem;">
         <img src="{{product.imageUrl}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{product.name}}</h5>
-            <h6 class="text-primary">{{product.categoryName}}</h6>
-            <p class="card-text">{{product.description}}</p>
-            <span class="p-2 rounded" [ngStyle]="getPriceStyle(product.price)">{{ product.price| currency:'TRY' }}</span>
-            <button (click)="addToCart(product.name, product.categoryName)" [ngStyle]="getPriceButtonStyle(product.price)" class="rounded">Add to Cart</button>
+
+            <h6 class="text-primary" *ngFor="let category of categories">
+                <p *ngIf="category.id==product.categoryId ">
+                    <fa-icon [icon]="faList"></fa-icon> {{category.name}}
+                </p>
+            </h6>
+
+            <p class="mb-4 card-text">{{product.description}}</p>
+
+            <span class="p-2 rounded" style="padding-top: 20px;" [ngStyle]="getPriceStyle(product.price)">
+                <fa-icon [icon]="faTag"></fa-icon> {{ product.price| currency:'TRY' }}
+            </span>
+
+            <button (click)="addToCart(product.name)"
+                [ngStyle]="getPriceButtonStyle(product.price)" class="rounded mt-2">
+                <fa-icon [icon]="faCartPlus"></fa-icon> Add to Cart
+            </button>   
         </div>
     </div>

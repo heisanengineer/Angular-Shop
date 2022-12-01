@@ -1,6 +1,7 @@
-import { getCurrencySymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { faHouseDamage, faPlus, faSearch, faUser, faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { SearchBarService } from '../services/search-bar.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,18 +10,23 @@ import { ProductService } from '../services/product.service';
 
 })
 export class NavComponent {
-  navbarSearchText:string=""
+  navbarSearchText: string = ""
   constructor(
-    private productService: ProductService
-    ) { }
+    private searchBar: SearchBarService
+  ) { }
 
+  faHouseDamage = faHouseDamage;
+  faPlus = faPlus;
+  faSearch = faSearch;
+  faUser = faUser;
+  faCartPlus = faCartPlus;
 
   getSearchText(event: any) {
     let searchText = String(event.value)
-    this.productService.navbarSearchText.next(searchText)
+    this.searchBar.navbarSearchText.next(searchText)
   }
 
-  getColor(){
+  getColor() {
     return 'green';
   }
 }

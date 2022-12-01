@@ -1,9 +1,11 @@
-<h3>{{title}}</h3>
-<div class="list-group">
-  <!-- <a [class.active]="category==selectedCategory" *ngFor="let category of categories" (click)="selectCategory(category)"
-    routerLink="products/category/{{category.id}}" class="list-group-item"
-    routerLinkActive="router-link-active">{{category.name}}</a> -->
-    <a [class.active]="category==selectedCategory" *ngFor="let category of categories" (click)="selectCategory(category)"
-    routerLink="products"[queryParams]="{categoryId:category.id}" class="list-group-item"
-    routerLinkActive="router-link-active">{{category.name}}</a>
+<div class="list-group mt-4">
+    <a routerLink="products" (click)="selectCategory(category)" routerLinkActive="router-link-active"
+        [class.active]="category==selectedCategory" class="list-group-item text-left">
+        <fa-icon [icon]="faArrowRight"></fa-icon> All Products
+    </a>
+    <a [class.active]="category==selectedCategory" *ngFor="let category of categories"
+        (click)="selectCategory(category)" routerLink="products" [queryParams]="{categoryId:category.id}"
+        class="list-group-item text-left" routerLinkActive="router-link-active">
+        <fa-icon [icon]="faArrowRight"></fa-icon>{{category.name}}
+    </a>
 </div>

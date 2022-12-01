@@ -1,0 +1,42 @@
+<h3 class="mt-4 mb-4">Add new product</h3>
+
+<div class="alert alert-danger mt-1 w-50" *ngIf="
+    productAddForm.get('name')?.hasError('required') && productAddForm.get('name')?.dirty || 
+    productAddForm.get('description')?.hasError('required') && productAddForm.get('description')?.dirty ||
+    productAddForm.get('imageUrl')?.hasError('required') && productAddForm.get('imageUrl')?.dirty || 
+    productAddForm.get('price')?.hasError('required') && productAddForm.get('price')?.dirty ||
+    productAddForm.get('categoryId')?.hasError('required') && productAddForm.get('categoryId')?.touched
+    ">
+    You have must fill field.</div>
+
+<form [formGroup]="productAddForm" (ngSubmit)="add()" class="w-50">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="name">
+        <label for="floatingInput">Product Name:</label>
+    </div>
+
+    <input formControlName="categoryId" class="form-control" list="datalistOptions" id="categoryId" name="categoryId" required placeholder="Type to search...">
+    <datalist id="datalistOptions">
+        <option *ngFor="let category of categories " [value]="category.name">{{category.name}}</option>
+    </datalist>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="description" formControlName="description"
+            placeholder="description">
+        <label for="floatingInput">Description:</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl" placeholder="imageUrl">
+        <label for="floatingInput">Image Url:</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="price" formControlName="price" placeholder="price">
+        <label for="floatingInput">Price:</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Product</button>
+
+</form>

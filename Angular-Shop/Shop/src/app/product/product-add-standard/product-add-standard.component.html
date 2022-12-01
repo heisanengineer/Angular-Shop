@@ -1,0 +1,48 @@
+<h3 class="mt-4 mb-4">Add new product</h3>
+
+<div class="alert alert-danger mt-1 w-50" *ngIf="
+    name.invalid && name.dirty || 
+    description.invalid && description.dirty ||
+    imageUrl.invalid && imageUrl.dirty || 
+    price.invalid && price.dirty ||
+    categoryId.invalid && categoryId.touched">
+    You have must fill field.</div>
+
+<form #productAddForm="ngForm" (ngSubmit)="add(productAddForm)" class="w-50">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" 
+        #name="ngModel" [(ngModel)]="model.name" 
+        name="name" id="name" placeholder="name" required>
+        <label for="floatingInput">Product Name:</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" 
+        #description="ngModel" [(ngModel)]="model.description" 
+        name="description" id="description" placeholder="description" required>
+        <label for="floatingInput">Description:</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" 
+        #imageUrl="ngModel" [(ngModel)]="model.imageUrl" 
+        name="imageUrl" id="imageUrl" placeholder="imageUrl" required>
+        <label for="floatingInput">Image Url:</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" 
+        #price="ngModel" [(ngModel)]="model.price" 
+        name="price" id="price" placeholder="price" required>
+        <label for="floatingInput">Price:</label>
+    </div>
+
+    <select class="form-select mb-3" #categoryId="ngModel" required  [(ngModel)]="model.categoryId" name="categoryId" id="categoryId">
+        <option *ngFor="let category of categories "   
+          [value]="category.id">{{category.name}}</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary" [disabled]="productAddForm.invalid">Add Product</button>
+    
+</form>
